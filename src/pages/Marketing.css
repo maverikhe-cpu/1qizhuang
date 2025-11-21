@@ -1,0 +1,340 @@
+.marketing-page {
+    padding-top: 80px;
+    background-color: var(--bg-body);
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.marketing-header {
+    margin-bottom: 60px;
+    padding-top: 40px;
+}
+
+.marketing-header h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.marketing-header p {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+/* Loop Visualization */
+.marketing-loop {
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.loop-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.loop-step {
+    background: var(--bg-surface);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    width: 160px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.loop-step.active {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent);
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    background: var(--bg-surface-hover);
+}
+
+.step-label {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+.step-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.loop-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Detail Content */
+.marketing-content-area {
+    background: var(--bg-surface);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 60px;
+    box-shadow: var(--shadow-sm);
+    min-height: 400px;
+    border: 1px solid var(--border-color);
+}
+
+.step-detail {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.detail-text {
+    flex: 1;
+}
+
+.detail-text h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.detail-text p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.feature-list {
+    list-style: none;
+}
+
+.feature-list li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text-main);
+}
+
+.feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+}
+
+.detail-visual {
+    flex: 1;
+    height: 300px;
+    background: var(--bg-surface-hover);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Visual Specifics */
+.traffic-pool {
+    position: relative;
+}
+
+.pool-center {
+    width: 100px;
+    height: 100px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-weight: bold;
+}
+
+.pool-item {
+    position: absolute;
+    padding: 8px 16px;
+    background: var(--bg-surface);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.p1 {
+    top: 20%;
+    left: 20%;
+}
+
+.p2 {
+    top: 20%;
+    right: 20%;
+}
+
+.p3 {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.trust-card {
+    width: 200px;
+    height: 150px;
+    background: #333;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.live-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #E74C3C;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.store-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #eee;
+}
+
+.screen-display {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: #1A3250;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.flywheel .wheel {
+    width: 200px;
+    height: 200px;
+    border: 10px solid var(--color-secondary);
+    border-radius: 50%;
+    position: relative;
+}
+
+.spoke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    width: 90px;
+    height: 2px;
+    background: transparent;
+    /* Invisible spokes, just labels */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.s1 {
+    transform: rotate(0deg);
+}
+
+.s2 {
+    transform: rotate(120deg);
+}
+
+.s3 {
+    transform: rotate(240deg);
+}
+
+/* Advantages */
+.marketing-advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.advantage-card {
+    background: var(--bg-surface);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.adv-icon {
+    margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--text-main);
+}
+
+.advantage-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.adv-chart {
+    height: 60px;
+    background: var(--bg-surface-hover);
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.highlight-quote {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: var(--font-family-heading);
+}
+
+@media (max-width: 768px) {
+    .step-detail {
+        flex-direction: column;
+    }
+
+    .loop-connector {
+        display: none;
+    }
+
+    .loop-step {
+        width: 100%;
+    }
+}

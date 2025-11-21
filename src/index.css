@@ -1,0 +1,194 @@
+:root {
+  /* Base Palette - Light */
+  --color-primary: #1A3250;
+  --color-secondary: #4A90E2;
+  --color-accent: #FF7A00;
+
+  /* Semantic Colors - Light Mode Default */
+  --bg-body: #F5F7FA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F8F9FA;
+  --text-main: #333333;
+  --text-secondary: #666666;
+  --text-inverse: #FFFFFF;
+  --border-color: #E1E4E8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 100px;
+
+  /* Typography */
+  --font-family-heading: 'Montserrat', 'Source Han Sans CN', sans-serif;
+  --font-family-body: 'Inter', 'Source Han Sans CN', sans-serif;
+  --font-family-data: 'DIN Alternate', 'Roboto', sans-serif;
+
+  /* Compatibility Aliases for older components */
+  --color-bg: var(--bg-body);
+  --color-text: var(--text-main);
+  --color-subtext: var(--text-secondary);
+  --color-white: var(--bg-surface);
+  /* Maps to surface color in dark mode */
+}
+
+/* Dark Mode Variables */
+.dark {
+  --color-primary: #60A5FA;
+  /* Brighter Blue (Blue 400) */
+  --bg-body: #0B1120;
+  /* Deep Navy/Black */
+  --bg-surface: #1E293B;
+  /* Slate 800 - Distinct from body */
+  --bg-surface-hover: #334155;
+  /* Slate 700 */
+  --text-main: #F8FAFC;
+  /* Slate 50 - Almost White */
+  --text-secondary: #CBD5E1;
+  /* Slate 300 - High contrast grey */
+  --text-inverse: #0F172A;
+  --border-color: #334155;
+  /* Slate 700 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: var(--text-main);
+  /* Changed from fixed primary color */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+/* Utilities */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #FF5500 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 122, 0, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  backdrop-filter: blur(4px);
+}
+
+.dark .btn-outline {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+}
+
+.card {
+  background: var(--bg-surface);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}

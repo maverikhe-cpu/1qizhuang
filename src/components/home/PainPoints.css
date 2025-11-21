@@ -1,0 +1,91 @@
+.pain-points-section {
+    background-color: var(--bg-body);
+    position: relative;
+    z-index: 2;
+    margin-top: -80px;
+    /* Overlap with Hero */
+    padding-top: 0;
+}
+
+.pain-points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.pain-card {
+    background: var(--bg-surface);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.pain-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-accent);
+}
+
+.pain-icon-wrapper {
+    margin-bottom: 20px;
+    display: inline-flex;
+    padding: 15px;
+    background-color: rgba(255, 122, 0, 0.1);
+    border-radius: 50%;
+}
+
+.pain-data {
+    font-family: var(--font-family-data);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.pain-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.pain-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.pain-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pain-quote {
+    font-family: var(--font-family-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
+}
+
+.pain-quote::before,
+.pain-quote::after {
+    content: '"';
+    color: var(--color-accent);
+    font-size: 40px;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.pain-quote::before {
+    top: -10px;
+    left: -20px;
+}
+
+.pain-quote::after {
+    bottom: -30px;
+    right: -20px;
+}
