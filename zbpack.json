@@ -1,0 +1,9 @@
+{
+    "build_command": "npm run build",
+    "install_command": "npm install",
+    "output_dir": "dist",
+    "static": {
+        "path": "/",
+        "fallback": "index.html"
+    }
+}
