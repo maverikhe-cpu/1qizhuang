@@ -41,8 +41,7 @@ const Demo = () => {
         try {
             // 使用 FormSubmit.co 服务发送邮件
             // 这是一个免费的表单提交服务，无需API密钥
-            const formElement = e.target;
-            const formDataToSend = new FormData(); // Create a new FormData object
+            const formDataToSend = new FormData();
 
             // Manually append all form data from state
             formDataToSend.append('name', formData.name);

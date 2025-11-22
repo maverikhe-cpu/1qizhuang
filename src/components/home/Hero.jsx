@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, ArrowRight, MapPin, Activity } from 'lucide-react';
 import './Hero.css';
@@ -124,8 +124,8 @@ const Hero = () => {
                                     key={district.id}
                                     className="district-marker"
                                     style={{
-                                        left: `${district.x}%`,
-                                        top: `${district.y}%`,
+                                        left: `${district.x}% `,
+                                        top: `${district.y}% `,
                                     }}
                                     initial={{ scale: 0, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
@@ -150,7 +150,7 @@ const Hero = () => {
                                         className="marker-dot"
                                         style={{
                                             backgroundColor: district.color,
-                                            boxShadow: `0 0 20px ${district.color}`
+                                            boxShadow: `0 0 20px ${district.color} `
                                         }}
                                     />
 
@@ -177,7 +177,7 @@ const Hero = () => {
                             <svg className="data-flow-lines" viewBox="0 0 200 200">
                                 {beijingDistricts.map((district, i) => (
                                     <motion.line
-                                        key={`line-${district.id}`}
+                                        key={`line - ${district.id} `}
                                         x1="100"
                                         y1="100"
                                         x2={district.x * 2}
