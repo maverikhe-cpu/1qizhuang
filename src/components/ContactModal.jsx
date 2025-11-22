@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import './ContactModal.css';
 
@@ -89,7 +90,7 @@ const ContactModal = ({ isOpen, onClose, formType = 'general' }) => {
 
     if (!isOpen) return null;
 
-    return (
+    return createPortal(
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>
@@ -215,7 +216,8 @@ const ContactModal = ({ isOpen, onClose, formType = 'general' }) => {
                     </button>
                 </form>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 
