@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Users, Truck, Wrench, Cpu, TrendingUp, Globe, Shield, Zap } from 'lucide-react';
+import ContactModal from '../components/ContactModal';
 import './Partners.css';
 
 const Partners = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const partnerTypes = [
         {
             icon: <Users />,
@@ -138,9 +140,15 @@ const Partners = () => {
                 <section className="partners-cta">
                     <h2>准备好一起成长了吗？</h2>
                     <p>立即加入一起装生态体系，开启您的数字化增长新篇章。</p>
-                    <button className="cta-btn">申请成为合作伙伴</button>
+                    <button className="cta-btn" onClick={() => setIsModalOpen(true)}>申请成为合作伙伴</button>
                 </section>
             </div>
+
+            <ContactModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                formType="partner"
+            />
         </div>
     );
 };

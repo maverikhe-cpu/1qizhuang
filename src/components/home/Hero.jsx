@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, ArrowRight, MapPin, Activity } from 'lucide-react';
+import ContactModal from '../ContactModal';
 import './Hero.css';
 
 const Hero = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeDistrict, setActiveDistrict] = useState(null);
 
     // 北京市主要区域的工地数据
@@ -62,7 +64,7 @@ const Hero = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="hero-actions"
                     >
-                        <button className="btn btn-primary hero-btn">
+                        <button className="btn btn-primary hero-btn" onClick={() => setIsModalOpen(true)}>
                             申请免费试用 <ArrowRight size={18} style={{ marginLeft: 8 }} />
                         </button>
                         <button className="btn btn-outline hero-btn-secondary">
@@ -216,6 +218,12 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            <ContactModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                formType="trial"
+            />
         </section>
     );
 };

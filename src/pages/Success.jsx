@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Headphones, Wrench, BookOpen, Lightbulb, ArrowRight, TrendingUp, TrendingDown } from 'lucide-react';
+import ContactModal from '../components/ContactModal';
 import './Success.css';
 
 const Success = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const cases = [
         {
             name: "XX装饰",
@@ -140,11 +142,17 @@ const Success = () => {
                             </div>
                         </div>
 
-                        <button className="btn btn-primary alipay-cta">抢先接入支付宝生态</button>
+                        <button className="btn btn-primary alipay-cta" onClick={() => setIsModalOpen(true)}>抢先接入支付宝生态</button>
                     </div>
                 </section>
 
             </div>
+
+            <ContactModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                formType="alipay"
+            />
         </div>
     );
 };
