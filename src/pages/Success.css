@@ -86,9 +86,10 @@
 
 .cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
+
 
 .case-card {
     background: var(--bg-surface);
@@ -308,11 +309,34 @@
 }
 
 @media (max-width: 768px) {
+    .success-header h1 {
+        font-size: 28px;
+    }
+
+    .alipay-section {
+        padding: 40px 20px;
+    }
+
+    .alipay-header {
+        font-size: 24px;
+        flex-wrap: wrap;
+    }
+
+    .alipay-section h2 {
+        font-size: 20px;
+    }
+
     .alipay-value-grid {
         flex-direction: column;
+        gap: 30px;
+    }
+
+    .value-box {
+        width: 100%;
     }
 
     .connection-anim {
         transform: rotate(90deg);
+        margin: 10px 0;
     }
 }

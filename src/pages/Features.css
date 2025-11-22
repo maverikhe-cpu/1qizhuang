@@ -417,14 +417,92 @@
 @media (max-width: 768px) {
     .features-layout {
         flex-direction: column;
+        gap: 20px;
     }
 
     .features-sidebar {
         width: 100%;
+        position: sticky;
+        top: 70px;
+        /* Below navbar */
+        z-index: 90;
     }
 
     .sidebar-menu {
         position: static;
+        padding: 10px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        background: var(--bg-surface);
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        gap: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .sidebar-menu::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .menu-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-group h3 {
+        display: none;
+        /* Hide headers to save space, or keep if needed */
+    }
+
+    .menu-group ul {
+        display: flex;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .menu-group li {
+        padding: 6px 12px;
+        background: var(--bg-surface-hover);
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        font-size: 13px;
+    }
+
+    .menu-group li.active {
+        background: var(--color-secondary);
+        color: white;
+        border-color: var(--color-secondary);
+    }
+
+    .features-content {
+        padding: 0 20px;
+    }
+
+    .feature-detail-section {
+        padding: 20px;
+    }
+
+    .feature-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .pain-solution-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .ps-arrow {
+        transform: rotate(90deg);
+        align-self: center;
     }
 
     .comparison-cards {

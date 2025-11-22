@@ -9,7 +9,8 @@
     background-color: transparent;
 }
 
-.navbar.scrolled {
+.navbar.scrolled,
+.navbar.mobile-open {
     background-color: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -30,10 +31,11 @@
     color: var(--text-main);
     display: flex;
     align-items: center;
+    z-index: 1002;
 }
 
-/* Force white logo on home hero when not scrolled */
-.navbar:not(.scrolled) .logo {
+/* Force white logo on home hero when not scrolled and menu is closed */
+.navbar:not(.scrolled):not(.mobile-open) .logo {
     color: #FFFFFF;
 }
 
@@ -48,6 +50,7 @@
     margin-left: 2px;
 }
 
+/* Desktop Navigation */
 .nav-links {
     display: flex;
     gap: 30px;
@@ -106,9 +109,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
-.navbar:not(.scrolled) .theme-toggle {
+.navbar:not(.scrolled):not(.mobile-open) .theme-toggle {
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -119,4 +123,96 @@
 .nav-cta {
     padding: 10px 20px;
     font-size: 14px;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    align-items: center;
+    gap: 16px;
+    z-index: 1002;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.navbar:not(.scrolled):not(.mobile-open) .menu-btn {
+    color: #FFFFFF;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-body);
+    z-index: 1001;
+    padding-top: 80px;
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.mobile-menu.open {
+    transform: translateY(0);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: color 0.3s;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    color: var(--color-primary);
+    padding-left: 20px;
+}
+
+.mobile-cta {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
 }

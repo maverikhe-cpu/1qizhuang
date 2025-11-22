@@ -320,13 +320,19 @@
 }
 
 @media (max-width: 768px) {
+    .partners-header h1 {
+        font-size: 28px;
+    }
+
     .value-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .value-visual {
         height: 300px;
         overflow: hidden;
+        transform: scale(0.8);
     }
 
     .c3 {
@@ -341,5 +347,17 @@
     .process-step {
         width: 100%;
         max-width: 100%;
+    }
+
+    .partners-cta {
+        padding: 40px 20px;
+    }
+
+    .partners-cta h2 {
+        font-size: 24px;
+    }
+
+    .partners-cta p {
+        font-size: 16px;
     }
 }

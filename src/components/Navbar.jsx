@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
-    const [isDark, setIsDark] = useState(true); // Default to Dark for premium feel
+    const [isDark, setIsDark] = useState(true);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
-        // Initialize Theme
         if (isDark) {
             document.documentElement.classList.add('dark');
         } else {
@@ -26,7 +26,6 @@ const Navbar = () => {
             }
         };
 
-        // Initial check
         if (location.pathname !== '/') {
             setScrolled(true);
         } else {
@@ -37,8 +36,17 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname]);
 
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
+
     const toggleTheme = () => {
         setIsDark(!isDark);
+    };
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     const navLinks = [
@@ -52,14 +60,15 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
             <div className="container navbar-container">
                 <Link to="/" className="logo">
                     <span className="logo-text">一起装</span>
                     <span className="logo-dot">.</span>
                 </Link>
 
-                <div className="nav-links">
+                {/* Desktop Nav */}
+                <div className="nav-links desktop-only">
                     {navLinks.map((link) => (
                         <Link
                             key={link.path}
@@ -71,11 +80,39 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                <div className="nav-actions">
+                <div className="nav-actions desktop-only">
                     <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
                         {isDark ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
                     <Link to="/demo" className="btn btn-primary nav-cta">
+                        申请演示
+                    </Link>
+                </div>
+
+                {/* Mobile Toggle */}
+                <div className="mobile-toggle">
+                    <button className="theme-toggle mobile-theme-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+                        {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
+                    <button className="menu-btn" onClick={toggleMobileMenu} aria-label="Toggle Menu">
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+                <div className="mobile-nav-links">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.path}
+                            to={link.path}
+                            className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                    <Link to="/demo" className="btn btn-primary mobile-cta">
                         申请演示
                     </Link>
                 </div>
